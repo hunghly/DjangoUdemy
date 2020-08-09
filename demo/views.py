@@ -8,13 +8,22 @@ from .models import Book as B
 class Another(View):
 
     books = B.objects.all()
+    output = ""
 
-    output = f
+    for book in books:
+      output += f"We have {book.title} books in DB with ID: {book.id}<br>"
+      print(book.title)
+      print(book.genre)
+      print(book.kid_friendly)
+      print(book.status)
+      print(book.description)
+      print(book.price)
+      print(book.published)
+      print(book.cover)
 
     def get(self, request):
-        print(self.books)
-        print(self.books[0])
-        return HttpResponse("This is another function inside class")
+        print(self.output)
+        return HttpResponse(self.output)
 
     def hello(self, request):
         return HttpResponse("Hello from another view")
