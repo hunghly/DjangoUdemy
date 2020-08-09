@@ -28,3 +28,7 @@ class Book(models.Model):
     description = models.TextField(max_length=500, blank=True)
     # Sets the price to 0 by default, and sets the max decimal places to 2
     price = models.DecimalField(default=0, max_digits=15, decimal_places=2)
+    # Sets the published date
+    published = models.DateField(blank=True, null=True)
+    # Sets the cover image
+    cover = models.ImageField(upload_to="covers/", blank=True)
