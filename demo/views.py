@@ -8,18 +8,20 @@ from .models import Book as B
 class Another(View):
 
     books = B.objects.all()
+    filtered_books = B.objects.filter(is_book_published=True)
     output = ""
+    for book in filtered_books:
+        output += f"We have {book.title} books in DB with ID: {book.id}<br>"
+        print(book.title)
+        print(book.genre)
+        print(book.kid_friendly)
+        print(book.status)
+        print(book.description)
+        print(book.price)
+        print(book.published)
+        print(book.cover)
 
-    for book in books:
-      output += f"We have {book.title} books in DB with ID: {book.id}<br>"
-      print(book.title)
-      print(book.genre)
-      print(book.kid_friendly)
-      print(book.status)
-      print(book.description)
-      print(book.price)
-      print(book.published)
-      print(book.cover)
+
 
     def get(self, request):
         print(self.output)
@@ -31,6 +33,7 @@ class Another(View):
 
 def first(request):
     return HttpResponse("First Message from Views")
+
 
 def hello(request):
     return HttpResponse("Hello World!")

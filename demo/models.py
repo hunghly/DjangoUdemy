@@ -30,5 +30,9 @@ class Book(models.Model):
     price = models.DecimalField(default=0, max_digits=15, decimal_places=2)
     # Sets the published date
     published = models.DateField(blank=True, null=True)
+
+    # Sets if the book is published
+    is_book_published = models.BooleanField(default=False)
+    
     # Sets the cover image
     cover = models.ImageField(upload_to="covers/", blank=True)

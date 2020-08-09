@@ -6,5 +6,6 @@ from .views import Another
 urlpatterns = [
     path('', views.first),
     path('another', Another.as_view()),
+    # path('anotherhello', Another.),
     path('hello', views.hello)
 ]
