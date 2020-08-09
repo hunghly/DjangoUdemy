@@ -7,9 +7,14 @@ from .models import Book as B
 # Adding a class
 class Another(View):
 
+    # objects.all() gets all the objects using QuerySet
     books = B.objects.all()
+    # objects.filter() gets all the objects based on the filtered content, can use excludes as well
     filtered_books = B.objects.filter(is_book_published=True)
+    # objects.get() returns just one object
+    book = B.objects.get(id=2)
     output = ""
+    # loops through each book and do some printing
     for book in filtered_books:
         output += f"We have {book.title} books in DB with ID: {book.id}<br>"
         print(book.title)
