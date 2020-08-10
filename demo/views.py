@@ -31,13 +31,13 @@ class Another(View):
     def get(self, request):
         print(self.output)
         return HttpResponse(self.output)
-
+    
     def hello(self, request):
         return HttpResponse("Hello from another view")
 
 
 def first(request):
-    return HttpResponse("First Message from Views")
+    return render(request, 'first_temp.html')
 
 
 def hello(request):
