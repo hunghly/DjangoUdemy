@@ -9,5 +9,15 @@
     <h1>This is my first template!</h1>
     <label for="name">Please enter your name:</label>
     <input id="name" type="text">
+    <h2>{{data}}</h2>
+    <h2>{{joke}}</h2>
+    <h2>The book with ID 2 is {{book}}</h2>
+    <h2>{{books}}</h2>
+    {% for book in books %}
+        <h2>{{book.title}}</h2>
+        {% if book.is_book_published %}
+            <h6>It's been published before</h6>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>

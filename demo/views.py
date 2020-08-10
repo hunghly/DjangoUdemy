@@ -31,13 +31,18 @@ class Another(View):
     def get(self, request):
         print(self.output)
         return HttpResponse(self.output)
-    
+
     def hello(self, request):
         return HttpResponse("Hello from another view")
 
 
 def first(request):
-    return render(request, 'first_temp.html')
+    return render(request, 'first_temp.html', {
+        'data': 'this is some data from views',
+        'joke': 'knock knock',
+        'book': B.objects.get(id=2).title,
+        'books': B.objects.all()
+    })
 
 
 def hello(request):
