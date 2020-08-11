@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from .models import Book as B
+from rest_framework import viewsets
+from .serializer import BookSerializer
 
 
 # Adding a class
@@ -47,3 +49,6 @@ def first(request):
 
 def hello(request):
     return HttpResponse("Hello World!")
+
+class BookViewSet(viewsets.ModelViewSet):
+    serializer_class = BookSerializer
