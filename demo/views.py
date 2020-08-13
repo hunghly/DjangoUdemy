@@ -51,4 +51,8 @@ def hello(request):
     return HttpResponse("Hello World!")
 
 class BookViewSet(viewsets.ModelViewSet):
+    # will create a variable with the serializer that we want to use
     serializer_class = BookSerializer
+    # assigns the queryset that will be used for the viewset
+    queryset = B.objects.all()
+

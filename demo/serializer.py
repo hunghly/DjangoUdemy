@@ -3,5 +3,6 @@ from .models import Book
 
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
-            model = Book
-            fields = ['title']
+        # selects the model and then the fields to be serialized 
+        model = Book
+        fields = ['title', 'description', 'price']
