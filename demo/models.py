@@ -3,6 +3,10 @@ from django.db import models
 # Create your models here.
 
 
+class BookNumber(models.Model):
+    isbn_10 = models.CharField(max_length=10, blank=True)
+    isbn_13 = models.CharField(max_length=13, blank=True)
+
 class Book(models.Model):
     STATUS = (
         (0, 'Unknown'),
@@ -37,6 +41,10 @@ class Book(models.Model):
     is_book_published = models.BooleanField(default=False)
     # Sets the cover image
     cover = models.ImageField(upload_to="covers/", blank=True)
+    # creates a one to one relationship to BookNumber
+    number = models.OneToOneField(
+        BookNumber, null=True, blank=True, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.title

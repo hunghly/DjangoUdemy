@@ -12,23 +12,23 @@ from .serializer import BookSerializer
 class Another(View):
 
     # objects.all() gets all the objects using QuerySet
-    books = B.objects.all()
+    # books = B.objects.all()
     # objects.filter() gets all the objects based on the filtered content, can use excludes as well
-    filtered_books = B.objects.filter(is_book_published=True)
+    # filtered_books = B.objects.filter(is_book_published=True)
     # objects.get() returns just one object
-    book = B.objects.get(id=2)
+    # book = B.objects.get(id=2)
     output = ""
     # loops through each book and do some printing
-    for book in filtered_books:
-        output += f"We have {book.title} books in DB with ID: {book.id}<br>"
-        print(book.title)
-        print(book.genre)
-        print(book.kid_friendly)
-        print(book.status)
-        print(book.description)
-        print(book.price)
-        print(book.published)
-        print(book.cover)
+    # for book in filtered_books:
+    #     output += f"We have {book.title} books in DB with ID: {book.id}<br>"
+    #     print(book.title)
+    #     print(book.genre)
+    #     print(book.kid_friendly)
+    #     print(book.status)
+    #     print(book.description)
+    #     print(book.price)
+    #     print(book.published)
+    #     print(book.cover)
 
 
 
