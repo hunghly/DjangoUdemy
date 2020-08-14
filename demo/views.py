@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.views import View
 from .models import Book as B
 from rest_framework import viewsets
-# from rest_framework.authtoken
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from .serializer import BookSerializer
 
 
@@ -56,4 +57,6 @@ class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer
     # assigns the queryset that will be used for the viewset
     queryset = B.objects.all()
-
+    authentication_classes = (TokenAuthentication,)
+    # you can control the resources that require authentication with permission classes
+    # permission_classes = (IsAuthenticated,)
